@@ -1,0 +1,5 @@
+admin panel login credentials
+
+http://localhost/covid19livetracker/admin/
+username - admin
+password - password

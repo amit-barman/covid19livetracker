@@ -1,0 +1,17 @@
+.heading {
+	text-align: center;
+}
+.lock-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  width: 60%;
+}
+.reset-pass {
+	text-align: center;
+
+}
+.inner {
+	align-content: centar;
+}

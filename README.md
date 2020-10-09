@@ -13,11 +13,11 @@
 	<img src="screenshots\Screenshot6.png" height="240" width="400" />
 </p>
 
-## what is covid19livetracker ?
+# what is covid19livetracker ?
 
 covid19 live tracker is a simple website site written in php and mysql this website using api for fetch data and give live covid-19 reports cases data of all over the world.
 
-### features
+## features
 
 - Total count of all type of cases
 - live Global data

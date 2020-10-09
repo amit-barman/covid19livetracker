@@ -19,14 +19,14 @@ covid19 live tracker is a simple website site written in php and mysql this webs
 
 ### features
 
--Total count of all type of cases
--live Global data
--Live covid cases of india
--contact
--Admin panel
+- Total count of all type of cases
+- live Global data
+- Live covid cases of india
+- contact
+- Admin panel
 
 ## Requirement
 
--Apache server
--php 7.1 or above
--mysql
+- Apache server
+- php 7.1 or above
+- mysql

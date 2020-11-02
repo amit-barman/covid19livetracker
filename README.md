@@ -1,6 +1,6 @@
 # Covid-19 Live Tracker
 
-![php](https://img.shields.io/badge/php-%3E%3D%207.1-brightgreen) ![server](https://img.shields.io/badge/Apache-xampp-blue) ![buield](https://img.shields.io/badge/build-passing-brightgreen) ![test](https://img.shields.io/badge/tests-passed-red)
+![php](https://img.shields.io/badge/php-%3E%3D%207.1-brightgreen) ![server](https://img.shields.io/badge/Apache-xampp-blue) ![buield](https://img.shields.io/badge/build-passing-brightgreen) ![test](https://img.shields.io/badge/tests-passed-red) ![mysql](https://img.shields.io/badge/mysql-7.0-lightgrey)
 
 ## Screenshots
 
@@ -19,10 +19,10 @@ covid19 live tracker is a simple website site written in php and mysql this webs
 
 ## features
 
-- Total count of all type of cases
+- Total count of all type of covid cases(Total recovered, Total Deths, Total infected, etc...)
 - live Global data
 - Live covid cases of india
-- contact
+- contact form
 - Admin panel
 
 ## Requirement
@@ -30,3 +30,7 @@ covid19 live tracker is a simple website site written in php and mysql this webs
 - Apache server
 - php 7.1 or above
 - mysql
+
+# Created By
+
+@Amit Barman

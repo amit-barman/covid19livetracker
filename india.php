@@ -66,11 +66,7 @@ $covid_data = json_decode($data, true);
 $inddata = file_get_contents('https://api.covid19india.org/data.json');
 $indstate = json_decode($inddata, true);
 
-// echo "</pre>";
-// echo($indstate);
 $statecount = count($indstate['statewise']);
-// echo "</pre>";
-// echo $statecount;
 
 $i = 1;
 while($i < $statecount) {

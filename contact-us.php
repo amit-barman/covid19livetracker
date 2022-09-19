@@ -67,7 +67,7 @@
 <!-- php data post block -->
 <?php
 
-include "config.php";
+include "admin/config.php";
 
 if(isset($_POST['Submit'])) {
   $name = $_POST['Name'];

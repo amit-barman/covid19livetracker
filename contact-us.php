@@ -75,9 +75,10 @@ if(isset($_POST['Submit'])) {
   $phone = $_POST['Phone'];
   $message = $_POST['Msg'];
 
-  $insert = "insert into contact(name, email, phone, message) values('$name', '$email', '$phone', '$message')";
+  $insert = $con->prepare("INSERT INTO contact(name, email, phone, message) VALUES(?, ?, ?, ?)");
+  $insert->bind_param("ssss", $name, $email, $phone, $message);
 
-  $res = mysqli_query($con, $insert);
+  $res =$insert->execute();
 
   if($res) {
     ?>

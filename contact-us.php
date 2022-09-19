@@ -46,7 +46,7 @@
                             <input type="text" name="Name" class="form-control" placeholder="Your Name *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="Email" class="form-control" placeholder="Your Email *" value="" />
+                            <input type="text" name="Email" class="form-control" placeholder="Your Email " value="" />
                         </div>
                         <div class="form-group">
                             <input type="text" name="Phone" class="form-control" placeholder="Your Phone Number *" value="" />
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <textarea name="Msg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                            <textarea name="Msg" class="form-control" placeholder="Your Message " style="width: 100%; height: 150px;"></textarea>
                         </div>
                     </div>
                 </div>
@@ -75,25 +75,39 @@ if(isset($_POST['Submit'])) {
   $phone = $_POST['Phone'];
   $message = $_POST['Msg'];
 
-  $insert = $con->prepare("INSERT INTO contact(name, email, phone, message) VALUES(?, ?, ?, ?)");
-  $insert->bind_param("ssss", $name, $email, $phone, $message);
+  // Check if Name or Phone Number is Given
+  if($name != null && $phone != null)
+  {
+    $insert = $con->prepare("INSERT INTO contact(name, email, phone, message) VALUES(?, ?, ?, ?)");
+    $insert->bind_param("ssss", $name, $email, $phone, $message);
 
-  $res =$insert->execute();
+    $res =$insert->execute();
 
-  if($res) {
-    ?>
-    <script>
-      alert("Thankyou for contact us");
-      location.replace("index.php");
-    </script>
+    if($res) {
+      ?>
+      <script>
+        alert("Thankyou for contact us");
+        location.replace("index.php");
+      </script>
 
-    <?php
+      <?php
 
+    } else {
+      ?>
+
+      <script>
+        alert("Unable to contact try again later");
+      </script>
+
+      <?php
+
+    }
   } else {
-    ?>
 
+    ?>
     <script>
-      alert("Unable to contact try again later");
+      alert("Some Mandatory Fields are Missing");
+      location.replace("contact-us.php");
     </script>
 
     <?php

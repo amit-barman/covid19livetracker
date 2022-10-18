@@ -25,20 +25,22 @@ session_start();
     $user = $_POST['username'];
     $password = $_POST['password'];
     
-    $user_search = "select * from admin where username='$user' && password='$password'";
+    $user_search_query = $con->prepare("SELECT * FROM admin WHERE username=? && password=?");
+    $user_search_query->bind_param("ss", $user, $password);
     
-    $query = mysqli_query($con, $user_search);
-    
-    $num = mysqli_num_rows($query);
-    
-    if($num == 1) {
-      $_SESSION['username'] = $user;
+    if($user_search_query->execute())
+    {
+      $num = $user_search_query->get_result()->fetch_all(MYSQLI_ASSOC);
       
-      header('location:home.php');
+      if(count($num) == 1) {
+        $_SESSION['username'] = $user;
+        
+        header('location:home.php');
 
-    } else {
-      
-      header('location:index.php');
+      } else {
+        
+        header('location:index.php');
+      }
     }
   }
 

@@ -52,9 +52,10 @@ include "config.php";
 if(isset($_POST['submit'])) {
  $password = $_POST['password'];
 
-  $update = "update admin set password = '$password' where id=1";
+  $update_query = $con->prepare("UPDATE admin SET password =? WHERE id=1");
+  $update_query->bind_param("s", $password);
 
-  $res = mysqli_query($con, $update);
+  $res = $update_query->execute();
 
   if($res) {
     ?>

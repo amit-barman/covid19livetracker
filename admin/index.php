@@ -25,26 +25,44 @@ session_start();
     $user = $_POST['username'];
     $password = $_POST['password'];
     
-    $user_search_query = $con->prepare("SELECT * FROM admin WHERE username=? && password=?");
-    $user_search_query->bind_param("ss", $user, $password);
+    $user_search_query = $con->prepare("SELECT * FROM admin WHERE username=?");
+    $user_search_query->bind_param("s", $user);
     
     if($user_search_query->execute())
     {
-      $num = $user_search_query->get_result()->fetch_all(MYSQLI_ASSOC);
-      
-      if(count($num) == 1) {
-        $_SESSION['username'] = $user;
-        
-        header('location:home.php');
+      $data = $user_search_query->get_result()->fetch_all(MYSQLI_ASSOC);
 
+      if(count($data) != 0)
+      {
+        $hashed_pass = $data[0]["password"];   // hashed password stored into the database
+
+        if(password_verify($password, $hashed_pass))
+        {
+          $_SESSION['username'] = $user;
+          
+          header('location:home.php');
+        } else {
+
+        ?>
+
+        <script>
+          alert("You have Enter an invalid username or password");
+        </script>
+
+        <?php
+        }  
       } else {
-        
-        header('location:index.php');
+        ?>
+
+        <script>
+          alert("You have Enter an invalid username or password");
+        </script>
+
+        <?php
       }
     }
   }
-
-  ?>
+?>
 
 <div class="container">
         <div class="row justify-content-center align-items-center" style="height:100vh">

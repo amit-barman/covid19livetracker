@@ -52,8 +52,10 @@ include "config.php";
 if(isset($_POST['submit'])) {
  $password = $_POST['password'];
 
+ $hashed_password = password_hash($password, PASSWORD_BCRYPT);  // hash the password
+
   $update_query = $con->prepare("UPDATE admin SET password =? WHERE id=1");
-  $update_query->bind_param("s", $password);
+  $update_query->bind_param("s", $hashed_password);
 
   $res = $update_query->execute();
 

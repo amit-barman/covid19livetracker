@@ -15,7 +15,7 @@
 
 # what is covid19livetracker ?
 
-covid19 live tracker is a simple web application written in php with mysql. This webapp using [covid19api](https://api.covid19api.com/) to fetch and show covid-19 live data of all over the world.
+covid-19 live tracker is a simple and easy to use web application built on PHP and MySQL. Using this web app we can track live cases of covid-19 all around the world. It uses [covid19api](https://api.covid19api.com/) to extract and display all the data.
 
 ## features
 
